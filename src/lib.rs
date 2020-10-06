@@ -168,7 +168,7 @@ impl Log for SimpleLogger {
             };
             #[cfg(feature = "chrono")]
             {
-                println!(
+                eprintln!(
                     "{} {:<5} [{}] {}",
                     Local::now().format("%Y-%m-%d %H:%M:%S,%3f"),
                     level_string,
@@ -178,7 +178,7 @@ impl Log for SimpleLogger {
             }
             #[cfg(not(feature = "chrono"))]
             {
-                println!("{:<5} [{}] {}", level_string, target, record.args());
+                eprintln!("{:<5} [{}] {}", level_string, target, record.args());
             }
         }
     }
